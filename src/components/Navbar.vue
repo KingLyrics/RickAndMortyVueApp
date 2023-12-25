@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router';
 <template>
   <nav class="px-24 flex items-center justify-between p-6">
     <div>
-      <h1 class="text-3xl font-bold">Rick & Morty <span class="text-blue-500">Wiki</span></h1>
+      <RouterLink to="/" class="text-3xl font-bold">Rick & Morty <span class="text-blue-500">Wiki</span></RouterLink>
     </div>
     <div class="space-x-10">
       <RouterLink to="/" class="text-xl" active-class="active">Characters</RouterLink>
