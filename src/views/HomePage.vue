@@ -1,6 +1,6 @@
 <template>
   <main class="bg-gray-50 h-screen p-6">
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-3xl mx-auto">
       <div class="mt-10 ">
         <h1 class="text-5xl text-center font-light">Characters</h1>
       </div>
@@ -26,7 +26,6 @@ const data = ref(null);
 
 const handleDataFetched = (result) => {
   data.value = result
-}
+};
 
-data.value
 </script>
