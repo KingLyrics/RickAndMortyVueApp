@@ -5,7 +5,11 @@
         <h1 class="text-5xl text-center font-light">Characters</h1>
       </div>
       <div class="mt-10 ">
-        <InputBar />
+        <InputBar @datafetched="handleDataFetched" />
+      </div>
+      <div>
+        results
+        <pre>{{ data }}</pre>
       </div>
     </div>
   </main>
@@ -15,4 +19,14 @@
 
 <script setup>
 import InputBar from '@/components/InputBar.vue';
+
+import { ref } from 'vue';
+
+const data = ref(null);
+
+const handleDataFetched = (result) => {
+  data.value = result
+}
+
+data.value
 </script>
