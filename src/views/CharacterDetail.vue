@@ -9,8 +9,16 @@
     <div v-if="loading">
       <p class="text-2xl font-bold">Loading</p>
     </div>
-    <div v-else class="max-w-md mx-auto">
+    <div v-else class="max-w-xl mx-auto mt-5 flex items-center justify-around space-x-6">
       <img :src="character.image" :alt="character.name">
+      <div class="items-start  space-y-3 text-center">
+        <h1 class="text-xl font-light">Name: {{ character.name }}</h1>
+        <h1 class="text-xl font-light ">Status: <span :class="statusStyling(character.status)" class="p-2">
+            {{ character.status }}
+          </span> </h1>
+        <h1 class="text-xl font-light"> Origin:{{ character.origin.name }}</h1>
+        <h1 class="text-xl font-light">Gender: {{ character.gender }}</h1>
+      </div>
     </div>
 
   </div>
@@ -41,6 +49,16 @@ const individualCharacter = async () => {
     loading.value = false;
   }
 };
+
+const statusStyling = (status) => {
+  if (status == 'Dead') {
+    return 'bg-red-500 text-white'
+  } else if (status == 'Alive') {
+    return 'bg-green-500 text-white'
+  } else {
+    return 'bg-gray-500 text-white'
+  }
+}
 
 onBeforeMount(() => {
   individualCharacter();

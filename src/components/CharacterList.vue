@@ -5,7 +5,8 @@
     </div>
     <div v-else>
       <div v-if="characters" class="grid  grid-cols-3 ml-24">
-        <div v-for="(character, index) in characters.results" :key="index" class="w-52 p-6 relative"
+        <div v-for="(character, index) in characters.results" :key="index"
+          class="w-52 p-6 relative hover:cursor-pointer hover:scale-105 transition-transform ease-in-out duration-300"
           @click="route.push(`/character/${character.id}`)">
           <img :src="character.image" class="rounded-md w-72 " :alt="character.name">
           <h3 class="text-xl font-bold mb-3">{{ character.name }}</h3>
