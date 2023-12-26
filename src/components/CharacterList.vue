@@ -4,14 +4,12 @@
       <p class="text-4xl font-bold">Loading...</p>
     </div>
     <div v-else>
-      <div v-if="characters" class="grid grid-cols-3 ml-24">
-        <div v-for="(character, index) in characters.results" :key="index" class="w-52 h-72 border border-blue-400">
-          <img :src="character.image" class="rounded-md " :alt="character.name">
-          <div>
-            <h3 class="text-xl font-bold mb-3">{{ character.name }}</h3>
-            <p>Status: {{ character.status }}</p>
-            <p>Species: {{ character.species }}</p>
-          </div>
+      <div v-if="characters" class="grid  grid-cols-3 ml-24">
+        <div v-for="(character, index) in characters.results" :key="index" class="w-52 p-6">
+          <img :src="character.image" class="rounded-md w-72 " :alt="character.name">
+          <h3 class="text-xl font-bold mb-3">{{ character.name }}</h3>
+          <p>Status: {{ character.status }}</p>
+          <p>Species: {{ character.species }}</p>
         </div>
       </div>
       <div v-else>
