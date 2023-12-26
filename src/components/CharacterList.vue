@@ -5,12 +5,13 @@
     </div>
     <div v-else>
       <div v-if="characters" class="grid  grid-cols-3 ml-24">
-        <div v-for="(character, index) in characters.results" :key="index" class="w-52 p-6 relative">
+        <div v-for="(character, index) in characters.results" :key="index" class="w-52 p-6 relative"
+          @click="route.push(`/character/${character.id}`)">
           <img :src="character.image" class="rounded-md w-72 " :alt="character.name">
           <h3 class="text-xl font-bold mb-3">{{ character.name }}</h3>
           <p class="absolute bg-green-500 p-1 top-7 right-7" :class="getStatus(character.status)"> {{ character.status }}
           </p>
-          <p class="font-bold">Last location <br /> <span class="font-normal text-xl">
+          <p class="font-bold text-sm">Last location <br /> <span class="font-light text-base">
               {{ character.location.name }}
             </span></p>
         </div>
@@ -24,6 +25,8 @@
 
 <script setup>
 const props = defineProps(['characters', 'loading']);
+import { useRouter } from 'vue-router';
+const route = useRouter();
 
 const getStatus = (status) => {
   if (status == 'Dead') {
@@ -33,9 +36,6 @@ const getStatus = (status) => {
   } else {
     return 'bg-gray-500 text-white'
   }
-}
-
-
-
+};
 
 </script>

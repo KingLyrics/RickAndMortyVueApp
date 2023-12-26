@@ -17,8 +17,7 @@
 import InputBar from '@/components/InputBar.vue';
 import CharacterList from '@/components/CharacterList.vue';
 import { onMounted, ref } from 'vue';
-
-const characters = ref([]);
+const characters = ref(null);
 const loading = ref(false);
 
 const initLoading = async () => {
