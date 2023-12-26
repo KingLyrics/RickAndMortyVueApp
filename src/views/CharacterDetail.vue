@@ -7,7 +7,7 @@
         </svg>
       </span> Back to Character Search</RouterLink>
     <div v-if="loading">
-      <p class="text-2xl font-bold">Loading</p>
+      <p class="text-2xl font-bold text-center">Loading</p>
     </div>
     <div v-else class="max-w-xl mx-auto mt-5 flex items-center justify-around space-x-6">
       <img :src="character.image" :alt="character.name">

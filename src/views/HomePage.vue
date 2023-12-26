@@ -20,10 +20,10 @@ import { onMounted, ref } from 'vue';
 const characters = ref(null);
 const loading = ref(false);
 
-const initLoading = async () => {
+const initLoading = async (pageNumber) => {
   try {
     loading.value = true;
-    const res = await fetch("https://rickandmortyapi.com/api/character");
+    const res = await fetch(`https://rickandmortyapi.com/api/character?page=${pageNumber}`);
     characters.value = await res.json();
   } catch (error) {
     console.error(error);
@@ -33,7 +33,7 @@ const initLoading = async () => {
 }
 
 onMounted(() => {
-  initLoading();
+  initLoading(2);
 });
 
 const handleDataFetched = (result) => {
