@@ -8,6 +8,13 @@
         <InputBar @datafetched="handleDataFetched" />
       </div>
       <CharacterList :characters="characters" :loading="loading" />
+      <div class="flex items-center justify-center space-x-6 my-10">
+        <button @click="initLoading(currentPage--)" :disabled="currentPage === 1"
+          class="bg-blue-500 text-white py2 px-3 rounded-md text-2xl">Previous</button>
+        <button @click="initLoading(currentPage++)" :disabled="currentPage === totalPages"
+          class="bg-blue-500 text-white py2 px-3 rounded-md text-2xl">Next</button>
+      </div>
+
     </div>
 
   </main>
@@ -19,6 +26,10 @@ import CharacterList from '@/components/CharacterList.vue';
 import { onMounted, ref } from 'vue';
 const characters = ref(null);
 const loading = ref(false);
+const totalPages = ref(0);
+const currentPage = ref(1);
+
+
 
 const initLoading = async (pageNumber) => {
   try {
